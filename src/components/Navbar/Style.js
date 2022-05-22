@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
-import ThemeMode from "./ThemeMode";
-
-const Nav = styled.nav`
+export const Nav = styled.nav`
   position: fixed;
   display: flex;
   align-items: center;
@@ -13,7 +11,7 @@ const Nav = styled.nav`
   box-shadow: 0 0 7px 1px #444;
 `;
 
-const Logo = styled.h3`
+export const Logo = styled.h3`
   position: relative;
   font-family: "Raleway", sans-serif;
 
@@ -37,16 +35,3 @@ const Logo = styled.h3`
     background: #333;
   }
 `;
-
-const Navbar = ({ darkModeHandler }) => {
-  return (
-    <>
-      <Nav>
-        <Logo>Where in the world ?</Logo>
-        <ThemeMode modeHandler={darkModeHandler} />
-      </Nav>
-    </>
-  );
-};
-
-export default Navbar;
