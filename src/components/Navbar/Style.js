@@ -8,8 +8,8 @@ export const Nav = styled.nav`
   justify-content: space-around;
   width: 100%;
   height: 4rem;
-  background: #999;
   box-shadow: 0 0 7px 1px #444;
+  z-index: 100;
 `;
 
 export const Logo = styled.h3`

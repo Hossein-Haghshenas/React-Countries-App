@@ -13,5 +13,4 @@ export const CountriesContainer = styled.section`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  background: #fff;
 `;

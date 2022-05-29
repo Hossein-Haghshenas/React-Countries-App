@@ -3,10 +3,9 @@ import styled from "styled-components";
 export const Card = styled.section`
   display: flex;
   flex-direction: column;
-  background: #999;
-  border-radius: 1rem;
+  border: 1px solid;
+  border-radius: 1rem 1rem 0 0;
   margin: 1rem;
-  box-shadow: 0 0 7px 1px #444;
 `;
 
 export const CardImg = styled.img`
