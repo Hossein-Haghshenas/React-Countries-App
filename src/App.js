@@ -1,6 +1,8 @@
+import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
-import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
+import Countries from "./components/Countries/Countries";
+import CountryDetails from "./components/CountryDetails/CountryDetails";
 
 function App() {
   const [theme, setTheme] = useState(false);
@@ -10,10 +12,13 @@ function App() {
   };
 
   return (
-    <div className="App">
-      {console.log(theme)}
+    <>
       <Navbar darkModeHandler={darkModeHandler} />
-    </div>
+      <Routes>
+        <Route path="/" element={<Countries />} />
+        <Route path="/country/:name" element={<CountryDetails />} />
+      </Routes>
+    </>
   );
 }
 
