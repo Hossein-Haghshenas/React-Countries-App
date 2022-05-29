@@ -1,12 +1,17 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import {
-  Card,
-  CardImg,
-  CardText,
-  CardTitle,
-  CardDescription,
   BackBtn,
   Container,
+  Country,
+  CountryImg,
+  CountryText,
+  Row,
+  Col,
+  CountryTitle,
+  CountryDescription,
+  DescriptionText,
+  BordersContainer,
+  BordersCountry,
 } from "./Style";
 
 const CountryDetails = () => {
@@ -23,7 +28,7 @@ const CountryDetails = () => {
     topLevelDomain,
     currencies,
     languages,
-    numericCode,
+    borders,
   } = location.state;
 
   const countryCurrencies = currencies
@@ -38,33 +43,57 @@ const CountryDetails = () => {
       )
     : languages;
 
+  const countryBorders =
+    borders &&
+    borders.map((border) => <BordersCountry>{border}</BordersCountry>);
+
   return (
     <Container>
       <BackBtn onClick={() => navigate("/")}>Back</BackBtn>
-      <Card>
-        <CardImg src={flags.png} alt="" />
-        <CardText>
-          <CardTitle>{name}</CardTitle>
-          <CardText>
-            <CardText>
-              <CardDescription>Native Name : {nativeName} </CardDescription>
-              <CardDescription>Population : {population}</CardDescription>
-              <CardDescription>Region : {region}</CardDescription>
-              <CardDescription>Sub Region : {subregion} </CardDescription>
-              <CardDescription>Capital : {capital} </CardDescription>
-            </CardText>
-            <CardText>
-              <CardDescription>
-                Top Level Domain : {topLevelDomain}
-              </CardDescription>
-              <CardDescription>
-                Currencies : {countryCurrencies}
-              </CardDescription>
-              <CardDescription>Languages :{countrylanguages}</CardDescription>
-            </CardText>
-          </CardText>
-        </CardText>
-      </Card>
+      <Country>
+        <CountryImg src={flags.png} alt={name} />
+
+        <CountryText className="ml-2">
+          <Row>
+            <CountryTitle>{name}</CountryTitle>
+          </Row>
+          <Row>
+            <Col>
+              <CountryDescription>
+                Native Name : <DescriptionText>{nativeName}</DescriptionText>
+              </CountryDescription>
+              <CountryDescription>
+                Population : <DescriptionText>{population}</DescriptionText>
+              </CountryDescription>
+              <CountryDescription>
+                Region : <DescriptionText>{region}</DescriptionText>
+              </CountryDescription>
+              <CountryDescription>
+                Sub Region : <DescriptionText>{subregion}</DescriptionText>
+              </CountryDescription>
+              <CountryDescription>
+                Capital : <DescriptionText>{capital}</DescriptionText>
+              </CountryDescription>
+            </Col>
+            <Col>
+              <CountryDescription>
+                Top Level Domain :
+                <DescriptionText>{topLevelDomain}</DescriptionText>
+              </CountryDescription>
+              <CountryDescription>
+                Currencies :
+                <DescriptionText>{countryCurrencies}</DescriptionText>
+              </CountryDescription>
+              <CountryDescription>
+                Languages :<DescriptionText>{countrylanguages}</DescriptionText>
+              </CountryDescription>
+            </Col>
+          </Row>
+          <BordersContainer>
+            Border Countries : {countryBorders}
+          </BordersContainer>
+        </CountryText>
+      </Country>
     </Container>
   );
 };
