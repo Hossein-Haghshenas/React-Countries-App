@@ -36,7 +36,7 @@ const Countries = () => {
       <SearchBar searchHandler={searchHandler} searchText={searchText} />
       <CountriesContainer>
         {countries.map((country) => {
-          const { name, population, region, capital, flags } = country;
+          const { name, population, region, capital, flags, borders } = country;
           return (
             <Link to={`/country/${name}`} state={country} key={nanoid()}>
               <Country
@@ -45,6 +45,7 @@ const Countries = () => {
                 region={region}
                 capital={capital}
                 flagImg={flags.png}
+                borders={borders}
               />
             </Link>
           );
