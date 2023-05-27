@@ -23,7 +23,7 @@ export const Logo = styled.h3`
     content: "";
     width: 1.5rem;
     height: 1.5px;
-    background: #333;
+    background: ${({ theme }) => theme.text};
     border-radius: 1rem;
   }
   &:after {
@@ -33,6 +33,6 @@ export const Logo = styled.h3`
     content: "";
     width: 2.5rem;
     height: 1.5px;
-    background: #333;
+    background: ${({ theme }) => theme.text};
   }
 `;

@@ -5,6 +5,10 @@ export const Container = styled.section`
   height: 100%;
   margin-top: 4rem;
   padding: 3rem 4rem;
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 3rem 1rem;
+  }
 `;
 
 export const BackBtn = styled.button`
@@ -26,6 +30,9 @@ export const CountryImg = styled.img`
   max-width: 30rem;
   height: 22rem;
   border-radius: 1rem;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const CountryText = styled.section`
@@ -33,6 +40,9 @@ export const CountryText = styled.section`
   flex-direction: column;
   justify-content: center;
   max-width: 100%;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const Row = styled.section`

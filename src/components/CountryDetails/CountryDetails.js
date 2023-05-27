@@ -17,35 +17,15 @@ import {
 const CountryDetails = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const {
-    name,
-    nativeName,
-    population,
-    region,
-    subregion,
-    capital,
-    flags,
-    topLevelDomain,
-    currencies,
-    languages,
-    borders,
-  } = location.state;
+  const { name, nativeName, population, region, subregion, capital, flags, topLevelDomain, currencies, languages, borders } = location.state;
 
-  const countryCurrencies = currencies
-    ? currencies.map((currency) => currency.name)
-    : currencies;
+  const countryCurrencies = currencies ? currencies.map((currency) => currency.name) : currencies;
 
   const countrylanguages = languages
-    ? languages.map((language, index) =>
-        index !== languages.length - 1
-          ? ` ${language.name} , `
-          : ` ${language.name}`
-      )
+    ? languages.map((language, index) => (index !== languages.length - 1 ? ` ${language.name} , ` : ` ${language.name}`))
     : languages;
 
-  const countryBorders =
-    borders &&
-    borders.map((border) => <BordersCountry>{border}</BordersCountry>);
+  const countryBorders = borders && borders.map((border) => <BordersCountry key={border}>{border}</BordersCountry>);
 
   return (
     <Container>
@@ -71,27 +51,27 @@ const CountryDetails = () => {
               <CountryDescription>
                 Sub Region : <DescriptionText>{subregion}</DescriptionText>
               </CountryDescription>
-              <CountryDescription>
-                Capital : <DescriptionText>{capital}</DescriptionText>
-              </CountryDescription>
+              {capital && (
+                <CountryDescription>
+                  Capital : <DescriptionText>{capital}</DescriptionText>
+                </CountryDescription>
+              )}
             </Col>
             <Col>
               <CountryDescription>
-                Top Level Domain :
-                <DescriptionText>{topLevelDomain}</DescriptionText>
+                Top Level Domain :<DescriptionText>{topLevelDomain}</DescriptionText>
               </CountryDescription>
-              <CountryDescription>
-                Currencies :
-                <DescriptionText>{countryCurrencies}</DescriptionText>
-              </CountryDescription>
+              {countryCurrencies && (
+                <CountryDescription>
+                  Currencies :<DescriptionText>{countryCurrencies}</DescriptionText>
+                </CountryDescription>
+              )}
               <CountryDescription>
                 Languages :<DescriptionText>{countrylanguages}</DescriptionText>
               </CountryDescription>
             </Col>
           </Row>
-          <BordersContainer>
-            Border Countries : {countryBorders}
-          </BordersContainer>
+          {countryBorders && <BordersContainer>Border Countries : {countryBorders}</BordersContainer>}
         </CountryText>
       </Country>
     </Container>

@@ -33,12 +33,12 @@ export const GlobalStyles = createGlobalStyle`
   body,
   section,
   nav,
-  button
+  button,
   *:before,
   *:after
    {
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
+    border-color:${({ theme }) => `${theme.text} !important`};
   }
-
   `;
